@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title></title>
+  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
+	<meta charset="utf-8">
+
+	<script type="text/javascript" charset="utf-8" src="phonegap-1.2.0.js"></script>
+    <script type="text/javascript">
+
+	function onBodyLoad()
+	{		
+		document.addEventListener("deviceready", onDeviceReady, false);
+	}
+	
+	function onDeviceReady()
+	{
+        document.getElementById('testBtt').style.display = "block";
+	}
+        
+    function showPreloader() {
+        PhoneGap.exec(function() {}, function() {}, "PluginClass", "showPreloader", []);        
+        
+        setTimeout("hidePreloader()", 5000);
+    }
+    
+    function hidePreloader() {
+        PhoneGap.exec(function() {}, function() {}, "PluginClass", "hidePreloader", []);
+    }
+        
+    </script>
+  </head>
+  <body style="margin:0; padding:0;" onload="onBodyLoad()">
+	<button onclick="showPreloader();" id="testBtt" style="display:none;">Test</button>
+  </body>
+</html>
